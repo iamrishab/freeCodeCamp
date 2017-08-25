@@ -1,0 +1,221 @@
+/*--- VARIABLES AND MIXINS ---*/
+/*----------------------------*/
+/*-------- BASIC STYLE -------*/
+* {
+  box-sizing: border-box;
+  font-family: Comfortaa, Helvetica, sans-serif;
+  text-decoration: none !important;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background: #2D2E40 !important;
+  background-image: url("https://raw.githubusercontent.com/boniverski/twitch-tv/master/image/play.png") !important;
+  background-repeat: repeat;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/*---------------------------------*/
+/*----- SECTION STYLE: HEADER------*/
+.section {
+  background-color: #3D3D55;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+  margin: 1em;
+  padding: 0 0.7em !important;
+}
+.section .header__main {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.section .header__main .header__logo {
+  color: #FDFDFD;
+  display: block;
+  flex-grow: 0;
+  font-size: 40px;
+  height: 30px;
+  margin: 0.25em 0.45em 0 0.2em;
+}
+.section .header__main .header__input {
+  background: #454662;
+  border: none;
+  border-radius: 0.25em;
+  color: #FDFDFD;
+  display: block;
+  flex-grow: 2;
+  font-size: 15px;
+  height: 40px;
+  margin: .5em 0;
+  outline: 0;
+  padding: 0 0.8em;
+}
+.section .header__main .header__search-icon {
+  color: #FDFDFD;
+  right: 15px;
+  top: 18px;
+  position: absolute;
+}
+.section .availability {
+  display: flex;
+  margin-top: 0.5em;
+  padding: 0;
+}
+.section .availability .availability__btn {
+  background: none;
+  border: none;
+  color: #FDFDFD;
+  flex: 1 0 1em;
+  height: 2em;
+  padding-bottom: 1em;
+  transition: all .12s ease-in-out;
+  cursor: pointer;
+}
+.section .availability .availability__btn--on:hover, .section .availability .active-on-btn {
+  box-shadow: inset 0 -3px 0 0 #96C93D;
+}
+.section .availability .availability__btn--off:hover, .section .availability .active-off-btn {
+  box-shadow: inset 0 -3px 0 0 #E74548;
+}
+.section .availability .availability__btn--all:hover, .section .availability .active-all-btn {
+  box-shadow: inset 0 -3px 0 0 #FAE840;
+}
+.section .availability .availability__btn--on:focus, .section .availability .availability__btn--off:focus, .section .availability .availability__btn--all:focus {
+  outline: 0;
+}
+
+/*-----------------------------------------*/
+/*----- SECTION STYLE: STREAMERS LIST------*/
+.main {
+  padding: 0.4em 0.4em !important;
+}
+.main .user {
+  background: #FDFDFD;
+  border-radius: 0.25em;
+  display: flex;
+  margin: 0.5em;
+  padding: 0.6em;
+  position: relative;
+}
+.main .user .user__avatar {
+  flex-grow: 0;
+  max-height: 80px;
+  max-width: 80px;
+}
+.main .user .user__card {
+  flex-grow: 2;
+  padding: 0.5em 0 0 1em;
+}
+.main .user .user__card a {
+  color: #24292E;
+}
+.main .user .user__card a:hover {
+  color: #1880AF;
+}
+.main .user .user__card h4 {
+  display: inline-block;
+  margin: 0;
+}
+.main .user .user__card p {
+  color: #24292E;
+  font-size: 0.8em;
+  display: block;
+  padding: 0.2em 0;
+  margin-bottom: 0;
+}
+.main .user .user__availability {
+  position: absolute;
+  flex-grow: 1;
+  right: 1em;
+  top: 1em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.main .user .user__availability--on {
+  background: #96C93D;
+  box-shadow: 0px 0 10px rgba(150, 201, 61, 0.5);
+}
+.main .user .user__availability--off {
+  background: #E74548;
+  box-shadow: 0px 0 10px rgba(231, 69, 72, 0.5);
+}
+
+/*--------------------------------*/
+/*------- LOADIN BAR STYLE -------*/
+.load-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #FAE840;
+}
+.load-bar .bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.load-bar .bar:nth-child(1) {
+  background-color: #E74548;
+  animation: loading 3s linear infinite;
+}
+.load-bar .bar:nth-child(2) {
+  background-color: #3b78e7;
+  animation: loading 3s linear 0.3s infinite;
+}
+.load-bar .bar:nth-child(3) {
+  background-color: #96C93D;
+  animation: loading 3s linear 0.6s infinite;
+}
+.load-bar .bar:nth-child(4) {
+  background-color: #FAE840;
+  animation: loading 3s linear 0.9s infinite;
+}
+@keyframes loading {
+  from {
+    left: 50%;
+    width: 0;
+    z-index: 100;
+  }
+  33.3333% {
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  to {
+    left: 0;
+    width: 100%;
+  }
+}
+/*--------------------------------*/
+.hidden {
+  display: none !important;
+}
+
+/* Hiding certain elements */
+.mario {
+  position: fixed;
+  bottom: -5px;
+  left: 5%;
+  margin-bottom: 0;
+}
+
+@media (max-width: 870px) {
+  .mario {
+    display: none;
+  }
+}

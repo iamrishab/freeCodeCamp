@@ -1,0 +1,168 @@
+@col-primary: #D86E31;
+@col-secondary: #092B40;
+@col-gray: #EDEDED;
+
+html, body {
+  min-width: 100%;
+  min-height: 100%;
+  background: @col-secondary;
+}
+
+// http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#content {
+  width: 85%;
+  margin: 0 auto;
+  padding: 10px;
+  #intro {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: center;
+    color: @col-primary;
+  }
+  #search {
+    position: relative;
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px 0;
+    text-align: center;
+    #search-input {
+      padding: 5px 15px;
+      padding-right: 30px;
+      width: 100%;
+      height: 50px;
+      color: white;
+      background: transparent;
+      border: 5px solid @col-primary;
+      border-radius: 25px;
+      outline: 0;
+    }
+    #search-clear {
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0;
+      margin: 20px;
+      padding: 5px;
+      color: @col-primary;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    #search-complete {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      top: 60px;
+      margin: 0 auto;
+      padding: 5px 15px;
+      width: 100%;
+      background: white;
+      color: black;
+      border: 5px solid @col-primary;
+      border-top: 0;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      text-align: left;
+      #auto-results {
+        list-style: none;
+        margin: 0 -5px;
+        padding: 0;
+        .auto-result {
+          // Cause some things don't work how they should :P
+          // https://quirksmode.org/css/user-interface/textoverflow.html
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          outline: 0;
+          height: 30px;
+          margin: 4px 0;
+          padding: 5px 10px;
+          border-radius: 5px;
+          &:last-of-type {
+            border-bottom: 0;
+          }
+          &:hover {
+            cursor: pointer;
+            background: #DDD;
+          }
+          &.selected {
+            color: white;
+            background: @col-secondary;
+          }
+        }
+      }
+    }
+    &.auto {
+      #search-input {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      #search-complete {
+        display: block;
+      }
+    }
+  }
+  #success {
+    z-index: 1;
+    display: none;
+    text-align: left;
+    #results {
+      list-style: none;
+      .result {
+        background: @col-gray;
+        margin: 10px 0;
+        padding: 0;
+        color: black;
+        a {
+          display: block;
+          text-decoration: none;
+          margin: 0;
+          padding: 25px;
+          &:hover, &:active, &:link, &:visited, &:focus {
+            color: black;
+          }
+          &:hover {
+            color: black;
+            border-left: 5px solid @col-primary;
+            margin-left: -5px;
+          }
+          h1 {
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  #failed {
+    z-index: 1;
+    display: none;
+    margin: 10px 0 0 0;
+    padding: 20px;
+    color: white;
+    border: 5px solid @col-primary;
+    font-size: 4.0em;
+    text-align: center;
+  }
+}

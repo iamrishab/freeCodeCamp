@@ -1,0 +1,87 @@
+@import url(http://weloveiconfonts.com/api/?family=fontawesome|fontelico);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* fontelico */
+[class*="fontelico-"]:before {
+  font-family: 'fontelico', sans-serif;
+}
+
+
+.fontawesome-refresh {
+	font-size: 14px;
+}
+
+.totalBody {
+	font-family: 'Lato', sans-serif;
+}
+.form-inline {
+	color: #ffffff;
+}
+.btn {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.addressEnterBar {
+	height: 60px;
+	background-color: #5bc0de;
+	border-bottom: 5px solid #4c4c4c;
+}
+.childOfBar {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+}
+.formAddress {
+	position: relative;
+}
+.units {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.addressStore {
+	height: 30px;
+	background-Color: #0c0c0c;
+}
+
+.address-buttons {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.initial {
+	height: 550px;
+}
+
+.temp {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.final {
+	margin-top: 20px;
+}
+
+.dataWe{
+	margin-top: 10px;
+}
+.currTemp {
+	font-size: 72px;
+}
+
+.summery {
+	border-left: 1px solid #dddddd;
+}
+.summeryC {
+	margin-top: 10px;
+	margin-left: 30px;
+}
+.summ {
+	font-size: 24px;
+}
